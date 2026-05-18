@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { translations } from '../i18n/strings.js'
 
 export const languages = [
   { code: 'en', label: 'English',  native: 'English',  flag: '🇬🇧', dir: 'ltr' },
@@ -10,7 +11,7 @@ export const languages = [
   { code: 'zh', label: 'Chinese',  native: '中文',      flag: '🇨🇳', dir: 'ltr' },
 ]
 
-const LangContext = createContext({ lang: languages[0], setLang: () => {} })
+const LangContext = createContext({ lang: languages[0], setLang: () => {}, t: (k) => k })
 
 export function LanguageProvider({ children }) {
   const [code, setCode] = useState(() => localStorage.getItem('harvyoice.lang') || 'en')
@@ -22,11 +23,17 @@ export function LanguageProvider({ children }) {
     document.documentElement.dir = lang.dir
   }, [lang])
 
+  const t = (key) => {
+    const dict = translations[lang.code] || {}
+    return dict[key] ?? translations.en[key] ?? key
+  }
+
   return (
-    <LangContext.Provider value={{ lang, setLang: setCode }}>
+    <LangContext.Provider value={{ lang, setLang: setCode, t }}>
       {children}
     </LangContext.Provider>
   )
 }
 
 export const useLang = () => useContext(LangContext)
+export const useT = () => useContext(LangContext).t

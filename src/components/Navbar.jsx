@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext.jsx'
 import { megaMenu, labsMega } from '../data/megaMenu.js'
 import { formatPKR } from '../data/labs.js'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
+import { useT } from '../context/LanguageContext.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState(null)
   const closeTimer = useRef(null)
   const { count } = useCart()
+  const t = useT()
 
   const openMenu = (label) => {
     clearTimeout(closeTimer.current)

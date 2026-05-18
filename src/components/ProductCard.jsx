@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom'
 import { Heart, ShoppingBag } from 'lucide-react'
 import { formatPrice } from '../data/products.js'
 import { useCart } from '../context/CartContext.jsx'
+import { useT } from '../context/LanguageContext.jsx'
 
 export default function ProductCard({ product }) {
   const { add } = useCart()
+  const t = useT()
 
   return (
     <div className="group relative flex w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:shadow-lg">
       <button
-        aria-label="Add to wishlist"
+        aria-label={t('product.addToWishlist')}
         className="absolute right-3 top-3 z-10 rounded-full bg-white/90 p-2 text-gray-700 opacity-0 shadow-sm transition group-hover:opacity-100 hover:text-[var(--color-accent-red)]"
       >
         <Heart className="h-4 w-4" />
@@ -40,7 +42,7 @@ export default function ProductCard({ product }) {
         <div className="mt-3 flex items-center justify-between">
           <span className="text-base font-semibold">{formatPrice(product.price)}</span>
           <button
-            aria-label="Add to cart"
+            aria-label={t('product.addToCart')}
             onClick={() => add(product)}
             className="rounded-full bg-[var(--color-brand-black)] p-2 text-white transition hover:bg-[var(--color-accent-blue)]"
           >
