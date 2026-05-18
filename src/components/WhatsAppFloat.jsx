@@ -7,9 +7,14 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition hover:bg-green-600 hover:scale-105"
+      className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[var(--color-brand-black)] py-3 pl-3 pr-4 text-white shadow-lg ring-1 ring-white/10 transition hover:bg-[var(--color-accent-blue)] hover:shadow-xl"
     >
-      <MessageCircle className="h-6 w-6" />
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]">
+        <MessageCircle className="h-4 w-4" />
+      </span>
+      <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium opacity-0 transition-all duration-300 group-hover:max-w-[160px] group-hover:opacity-100">
+        Chat with us
+      </span>
     </a>
   )
 }
