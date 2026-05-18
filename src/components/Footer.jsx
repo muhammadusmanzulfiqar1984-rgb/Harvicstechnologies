@@ -95,7 +95,19 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-gray-300 pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-gray-500">© {new Date().getFullYear()} Harvyoice. Demo site — not affiliated with Apple Inc.</p>
+          <div className="text-xs text-gray-500">
+            <p>© {new Date().getFullYear()} Harvyoice. All rights reserved.</p>
+            <p className="mt-1">A project by <span className="font-medium text-gray-700">Harvics Global Ventures</span>.</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500">
+            <Link to="/privacy-policy" className="hover:text-[var(--color-accent-blue)]">Privacy Policy</Link>
+            <span className="text-gray-300">·</span>
+            <Link to="/terms" className="hover:text-[var(--color-accent-blue)]">Terms of Use</Link>
+            <span className="text-gray-300">·</span>
+            <Link to="/cookie-policy" className="hover:text-[var(--color-accent-blue)]">Cookie Policy</Link>
+            <span className="text-gray-300">·</span>
+            <Link to="/return-exchange-policy" className="hover:text-[var(--color-accent-blue)]">Returns</Link>
+          </div>
           <div className="flex items-center gap-4 text-gray-500">
             <a href="#" aria-label="Facebook" className="hover:text-[var(--color-accent-blue)]"><FacebookIcon className="h-4 w-4" /></a>
             <a href="#" aria-label="Instagram" className="hover:text-[var(--color-accent-blue)]"><InstagramIcon className="h-4 w-4" /></a>
