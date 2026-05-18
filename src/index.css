@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #0b1220;
-  --color-brand-gray: #f4f6fa;
-  --color-accent-blue: #1d4ed8;
-  --color-accent-red: #dc2626;
+  --color-brand-black: #6B1F2B;   /* Burgundy / Maroon */
+  --color-brand-gray:  #FBF7EE;   /* Ivory cream — used for card and section backgrounds */
+  --color-accent-blue: #C3A35E;   /* Gold — used for CTAs, links, accents */
+  --color-accent-red:  #6B1F2B;   /* Burgundy — used for alerts / cart badge */
+  --color-divider:     #C3A35E;   /* Gold divider */
   --font-sans: "SF Pro Display", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
