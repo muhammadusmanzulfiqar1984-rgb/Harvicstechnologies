@@ -129,7 +129,8 @@ export const megaMenu = [
       ]},
     ],
     featured: pickFor('xiaomi', 2),
- 
+  },
+]
 
 // Separate mega menu for Tech Labs — rendered as the styled "Labs" pill
 export const labsMega = {
@@ -153,5 +154,5 @@ export const labsMega = {
     ]},
   ],
   featuredCourses: courses.slice(0, 3),
-} },
-]
+}
+
