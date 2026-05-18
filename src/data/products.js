@@ -180,7 +180,7 @@ export const products = [
     name: 'Samsung Galaxy Z Flip 7',
     category: 'samsung',
     price: 419999,
-    image: 'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1610792516775-01de03eae630?w=800&q=80',
   },
   {
     id: 'galaxy-tab-s11-ultra',
@@ -268,7 +268,7 @@ export const products = [
     name: 'Redmi Note 14 Pro',
     category: 'xiaomi',
     price: 84999,
-    image: 'https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1610792516775-01de03eae630?w=800&q=80',
   },
   {
     id: 'xiaomi-pad-7-pro',
