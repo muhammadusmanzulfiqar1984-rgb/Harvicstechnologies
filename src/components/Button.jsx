@@ -4,7 +4,7 @@ const base =
   'inline-flex items-center justify-center gap-2 rounded-full font-medium transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none'
 
 const variants = {
-  primary: 'bg-[var(--color-accent-blue)] text-white hover:bg-blue-700',
+  primary: 'bg-[var(--color-accent-blue)] text-[var(--color-brand-black)] hover:opacity-90',
   dark: 'bg-[var(--color-brand-black)] text-white hover:bg-black',
   secondary:
     'border border-[var(--color-brand-black)] text-[var(--color-brand-black)] hover:bg-[var(--color-brand-black)] hover:text-white',

@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
           <span className="hidden sm:inline">Free nationwide delivery on orders over PKR 25,000</span>
           <span className="sm:hidden">Free delivery over 25K</span>
         </div>
-        <a href="tel:+923224525052" className="flex items-center gap-2 hover:text-blue-300">
+        <a href="tel:+923224525052" className="flex items-center gap-2 hover:text-[var(--color-accent-blue)]">
           <Phone className="h-3.5 w-3.5" />
           <span>+92 322 4525052</span>
         </a>

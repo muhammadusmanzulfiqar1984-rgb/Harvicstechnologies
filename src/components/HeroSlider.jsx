@@ -22,13 +22,13 @@ export default function HeroSlider() {
 
           <div className="absolute inset-0 mx-auto flex max-w-7xl items-end px-4 pb-20 sm:px-6 lg:items-center lg:pb-0 lg:px-8">
             <div className={`max-w-xl text-white ${s.align === 'right' ? 'lg:ml-auto lg:text-right' : ''}`}>
-              {s.eyebrow && <p className="mb-2 text-sm font-medium uppercase tracking-wider text-blue-300">{s.eyebrow}</p>}
+              {s.eyebrow && <p className="mb-2 text-sm font-medium uppercase tracking-wider text-[var(--color-accent-blue)]">{s.eyebrow}</p>}
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{s.title}</h1>
               <p className="mt-3 text-lg text-gray-200">{s.subtitle}</p>
               <div className={`mt-6 flex flex-wrap gap-3 ${s.align === 'right' ? 'lg:justify-end' : ''}`}>
                 <Link
                   to={s.cta.to}
-                  className="inline-flex h-11 items-center justify-center rounded-full bg-[var(--color-accent-blue)] px-6 text-sm font-medium text-white transition hover:bg-blue-700"
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-[var(--color-accent-blue)] px-6 text-sm font-medium text-[var(--color-brand-black)] transition hover:opacity-90"
                 >
                   {s.cta.label}
                 </Link>

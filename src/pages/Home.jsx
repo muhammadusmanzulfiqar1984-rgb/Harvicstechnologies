@@ -116,7 +116,7 @@ export default function Home() {
               placeholder="you@example.com"
               className="h-12 flex-1 rounded-full bg-white/10 px-5 text-sm text-white placeholder:text-gray-400 outline-none ring-1 ring-white/20 focus:ring-2 focus:ring-[var(--color-accent-blue)]"
             />
-            <button className="h-12 rounded-full bg-[var(--color-accent-blue)] px-6 text-sm font-medium transition hover:bg-blue-700">
+            <button className="h-12 rounded-full bg-[var(--color-accent-blue)] px-6 text-sm font-medium text-[var(--color-brand-black)] transition hover:opacity-90">
               Subscribe
             </button>
           </form>

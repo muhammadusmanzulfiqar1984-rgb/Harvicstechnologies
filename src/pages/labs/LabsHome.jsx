@@ -19,7 +19,7 @@ export default function LabsHome() {
           <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1800&q=80" alt="" className="h-full w-full object-cover" />
         </div>
         <Container className="relative py-24 sm:py-32">
-          <p className="text-sm font-medium uppercase tracking-wider text-blue-300">Harvics Tech Labs</p>
+          <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent-blue)]">Harvics Tech Labs</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
             Build. Repair. Master.
           </h1>

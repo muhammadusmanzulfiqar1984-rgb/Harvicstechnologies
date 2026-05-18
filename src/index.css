@@ -2,7 +2,7 @@
 
 @theme {
   --color-brand-black: #6B1F2B;   /* Burgundy / Maroon */
-  --color-brand-gray:  #FBF7EE;   /* Ivory cream — used for card and section backgrounds */
+  --color-brand-gray:  #FFFFFF;   /* White — card and section backgrounds */
   --color-accent-blue: #C3A35E;   /* Gold — used for CTAs, links, accents */
   --color-accent-red:  #6B1F2B;   /* Burgundy — used for alerts / cart badge */
   --color-divider:     #C3A35E;   /* Gold divider */
