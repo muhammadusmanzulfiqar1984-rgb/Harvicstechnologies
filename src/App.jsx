@@ -22,8 +22,11 @@ import Instructors from './pages/labs/Instructors.jsx'
 import Gallery from './pages/labs/Gallery.jsx'
 import Testimonials from './pages/labs/Testimonials.jsx'
 import LabsContact from './pages/labs/LabsContact.jsx'
+import { Careers, CareerDetail } from './pages/Careers.jsx'
+import useRevealOnScroll from './hooks/useRevealOnScroll.js'
 
 export default function App() {
+  useRevealOnScroll()
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <AnnouncementBar />
@@ -48,6 +51,9 @@ export default function App() {
           <Route path="/labs/gallery" element={<Gallery />} />
           <Route path="/labs/testimonials" element={<Testimonials />} />
           <Route path="/labs/contact" element={<LabsContact />} />
+
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/careers/:slug" element={<CareerDetail />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

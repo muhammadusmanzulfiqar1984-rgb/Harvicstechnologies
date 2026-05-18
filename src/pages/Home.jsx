@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <HeroSlider />
 
-      <section className="py-14">
+      <section className="py-14 reveal">
         <Container>
           <SectionHeading eyebrow={t('home.browse')} title={t('home.shopByCategory')} />
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -30,7 +30,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-8">
+      <section className="py-8 reveal">
         <Container>
           <SectionHeading eyebrow="New" title={t('home.iphoneFamily')} viewAll="/product-category/iphone" />
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -41,7 +41,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-14">
+      <section className="py-14 reveal">
         <Container>
           <div className="grid gap-4 md:grid-cols-2">
             <PromoBanner
@@ -62,7 +62,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-8">
+      <section className="py-8 reveal">
         <Container>
           <SectionHeading eyebrow={t('home.performance')} title={t('home.macLineup')} viewAll="/product-category/mac" />
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -73,7 +73,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-14">
+      <section className="py-14 reveal">
         <Container>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <TrustBadge icon={ShieldCheck} title={t('trust.pta')} subtitle={t('trust.ptaSub')} />
@@ -84,7 +84,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="bg-[var(--color-brand-gray)] py-14">
+      <section className="bg-[var(--color-brand-gray)] py-14 reveal">
         <Container>
           <SectionHeading eyebrow={t('home.reviews')} title={t('home.lovedByCustomers')} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

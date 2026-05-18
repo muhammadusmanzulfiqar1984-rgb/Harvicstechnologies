@@ -51,6 +51,7 @@ const cols = [
     title: 'Help',
     links: [
       { to: '/contact-us', label: 'Contact Us' },
+      { to: '/careers', label: 'Careers' },
       { to: '/delivery-information', label: 'Delivery Info' },
       { to: '/return-exchange-policy', label: 'Returns' },
       { to: '/privacy-policy', label: 'Privacy Policy' },

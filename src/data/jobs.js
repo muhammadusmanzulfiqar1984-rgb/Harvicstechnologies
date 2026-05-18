@@ -1,0 +1,136 @@
+export const jobs = [
+  {
+    slug: 'senior-mobile-repair-technician',
+    title: 'Senior Mobile Repair Technician',
+    department: 'Harvics Tech Labs',
+    location: 'Lahore (on-site)',
+    type: 'Full-time',
+    experience: '3+ years',
+    salary: 'PKR 90,000 – 150,000',
+    posted: '2 days ago',
+    summary:
+      'Lead chip-level repairs across iPhone and Android boards, mentor juniors, and own quality control for premium repair tickets.',
+    responsibilities: [
+      'Diagnose and repair motherboards (BGA, reflow, micro-soldering)',
+      'Own quality control for all repairs leaving the lab',
+      'Mentor junior technicians and contribute to training content',
+      'Maintain tools, calibration logs, and ESD safety standards',
+    ],
+    requirements: [
+      '3+ years professional repair experience',
+      'Comfortable with schematics (Borneo / ZXW)',
+      'Fluent with hot air, soldering iron, UFI/JCID, oscilloscope',
+      'Strong attention to detail and customer empathy',
+    ],
+  },
+  {
+    slug: 'training-instructor-software-unlocking',
+    title: 'Training Instructor — Software & Unlocking',
+    department: 'Harvics Tech Labs',
+    location: 'Lahore (on-site)',
+    type: 'Full-time',
+    experience: '2+ years',
+    salary: 'PKR 70,000 – 110,000',
+    posted: '5 days ago',
+    summary:
+      'Deliver the Software course (firmware flashing, FRP, country unlock, dead-boot revival) to small batches.',
+    responsibilities: [
+      'Teach 4-week software course in English/Urdu',
+      'Keep curriculum updated to latest iOS / Android releases',
+      'Run live troubleshooting clinics on real customer devices',
+    ],
+    requirements: [
+      'Confident on UFI Box, JCID, iRepair, EFT',
+      'Hands-on with eMMC/UFS read & write',
+      'Patient, clear communicator',
+    ],
+  },
+  {
+    slug: 'retail-sales-associate',
+    title: 'Retail Sales Associate — Harvyoice Store',
+    department: 'Harvyoice Retail',
+    location: 'Lahore (on-site)',
+    type: 'Full-time',
+    experience: '1+ year',
+    salary: 'PKR 45,000 – 65,000 + commission',
+    posted: '1 week ago',
+    summary:
+      'Greet customers, demonstrate iPhone / Mac / Samsung / Pixel lineups, and convert walk-ins into delighted owners.',
+    responsibilities: [
+      'Product demos and needs-based recommendations',
+      'Process orders, COD, and EMI applications',
+      'Maintain showroom standards and stock displays',
+    ],
+    requirements: [
+      'Genuine enthusiasm for consumer tech',
+      'Spoken English + Urdu',
+      'Comfortable with POS and CRM tools',
+    ],
+  },
+  {
+    slug: 'customer-support-whatsapp',
+    title: 'Customer Support Specialist (WhatsApp)',
+    department: 'Harvyoice Online',
+    location: 'Lahore / Remote',
+    type: 'Full-time',
+    experience: 'Entry-level OK',
+    salary: 'PKR 50,000 – 75,000',
+    posted: '1 week ago',
+    summary:
+      'Be the friendly voice of Harvyoice on WhatsApp and email — answer product questions, track orders, and resolve issues.',
+    responsibilities: [
+      'Reply to WhatsApp chats within SLA',
+      'Coordinate with logistics for delivery updates',
+      'Escalate technical issues to the lab',
+    ],
+    requirements: [
+      'Excellent written Urdu & English',
+      'Empathetic, calm, solution-oriented',
+      'Basic spreadsheet skills',
+    ],
+  },
+  {
+    slug: 'frontend-developer',
+    title: 'Frontend Developer (React + Tailwind)',
+    department: 'Harvics Global Ventures',
+    location: 'Lahore / Remote (PK)',
+    type: 'Full-time',
+    experience: '2+ years',
+    salary: 'PKR 150,000 – 250,000',
+    posted: '3 days ago',
+    summary:
+      'Build and polish Harvyoice — our e-commerce + Tech Labs platform — alongside a small design-led team.',
+    responsibilities: [
+      'Ship features across React + Vite + Tailwind codebase',
+      'Maintain mega-menu, cart, i18n, and Vercel deploys',
+      'Translate Figma designs into pixel-true UI',
+    ],
+    requirements: [
+      'Strong React, Tailwind, React Router experience',
+      'Comfort with Git/GitHub and PR workflow',
+      'Eye for typography, spacing, and motion',
+    ],
+  },
+  {
+    slug: 'digital-marketing-executive',
+    title: 'Digital Marketing Executive',
+    department: 'Harvyoice Online',
+    location: 'Lahore (hybrid)',
+    type: 'Full-time',
+    experience: '2+ years',
+    salary: 'PKR 80,000 – 130,000',
+    posted: '4 days ago',
+    summary:
+      'Own Harvyoice social channels, run Meta/Google ads, and grow organic reach across Pakistan.',
+    responsibilities: [
+      'Plan + post weekly content calendar (IG, FB, TikTok)',
+      'Manage paid ad budget with monthly performance reports',
+      'Coordinate with photographers and creators',
+    ],
+    requirements: [
+      'Hands-on Meta Ads Manager experience',
+      'Good visual taste and copywriting',
+      'Bonus: video editing (CapCut / Premiere)',
+    ],
+  },
+]

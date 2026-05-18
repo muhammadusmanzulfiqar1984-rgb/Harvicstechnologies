@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
   const t = useT()
 
   return (
-    <div className="group relative flex w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:shadow-lg">
+    <div className="card-lift group relative flex w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white">
       <button
         aria-label={t('product.addToWishlist')}
         className="absolute right-3 top-3 z-10 rounded-full bg-white/90 p-2 text-gray-700 opacity-0 shadow-sm transition group-hover:opacity-100 hover:text-[var(--color-accent-red)]"

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/effects.css";
 
 @theme {
   --color-brand-black: #6B1F2B;   /* Burgundy / Maroon */
