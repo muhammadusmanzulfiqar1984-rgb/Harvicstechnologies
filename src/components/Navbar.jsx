@@ -2,7 +2,8 @@ import { useState, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Search, ShoppingBag, Menu, X, User, ChevronDown, ChevronRight } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
-import { megaMenu } from '../data/megaMenu.js'
+import { megaMenu, labsMega } from '../data/megaMenu.js'
+import { formatPKR } from '../data/labs.js'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -20,6 +21,7 @@ export default function Navbar() {
   }
 
   const current = megaMenu.find((m) => m.label === active)
+  const isLabs = active === 'Labs'
 
   return (
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/90 backdrop-blur">
@@ -44,18 +46,21 @@ export default function Navbar() {
               </NavLink>
             </div>
           ))}
-          <NavLink
-            to="/labs"
-            className={({ isActive }) =>
-              `rounded-full border px-3 py-1 text-sm font-medium transition ${
-                isActive
-                  ? 'border-[var(--color-accent-blue)] text-[var(--color-accent-blue)]'
-                  : 'border-gray-300 text-gray-800 hover:border-[var(--color-accent-blue)] hover:text-[var(--color-accent-blue)]'
-              }`
-            }
-          >
-            Labs
-          </NavLink>
+          <div onMouseEnter={() => openMenu('Labs')} className="relative">
+            <NavLink
+              to="/labs"
+              className={({ isActive }) =>
+                `inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm font-medium transition ${
+                  isActive || isLabs
+                    ? 'border-[var(--color-accent-blue)] text-[var(--color-accent-blue)]'
+                    : 'border-gray-300 text-gray-800 hover:border-[var(--color-accent-blue)] hover:text-[var(--color-accent-blue)]'
+                }`
+              }
+            >
+              Labs
+              <ChevronDown className="h-3.5 w-3.5 opacity-60" />
+            </NavLink>
+          </div>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -130,6 +135,66 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isLabs && (
+        <div
+          onMouseEnter={() => openMenu('Labs')}
+          onMouseLeave={scheduleClose}
+          className="absolute left-0 right-0 top-full hidden border-b border-gray-200 bg-white shadow-xl lg:block"
+        >
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
+            <div className="grid grid-cols-3 gap-8">
+              {labsMega.columns.map((col) => (
+                <div key={col.title}>
+                  <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">{col.title}</h4>
+                  <ul className="space-y-2">
+                    {col.links.map((l) => (
+                      <li key={l.label}>
+                        <Link
+                          to={l.to}
+                          onClick={() => setActive(null)}
+                          className={`text-sm transition hover:text-[var(--color-accent-blue)] ${
+                            l.strong ? 'font-semibold text-[var(--color-brand-black)]' : 'text-gray-700'
+                          }`}
+                        >
+                          {l.label} {l.strong && <ChevronRight className="inline h-3 w-3" />}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Featured Courses</h4>
+              <div className="grid grid-cols-3 gap-4">
+                {labsMega.featuredCourses.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={`/labs/courses/${c.slug}`}
+                    onClick={() => setActive(null)}
+                    className="group block"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden rounded-xl bg-[var(--color-brand-gray)]">
+                      <img src={c.image} alt={c.title} className="h-full w-full object-cover transition group-hover:scale-105" />
+                    </div>
+                    <p className="mt-2 text-xs font-semibold text-gray-800 group-hover:text-[var(--color-accent-blue)]">{c.title}</p>
+                    <p className="text-[11px] text-gray-500">{c.duration} · {formatPKR(c.fee)}</p>
+                  </Link>
+                ))}
+              </div>
+              <Link
+                to="/labs/book"
+                onClick={() => setActive(null)}
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-black)] px-5 py-2 text-xs font-medium text-white hover:opacity-90"
+              >
+                Book a repair <ChevronRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 // Mega-menu data: per top-level brand/category, what links to show in dropdown
 import { products } from './products.js'
+import { courses, services } from './labs.js'
 
 const pickFor = (cat, n = 4) =>
   products.filter((p) => p.category === cat).slice(0, n)
@@ -128,5 +129,29 @@ export const megaMenu = [
       ]},
     ],
     featured: pickFor('xiaomi', 2),
-  },
+ 
+
+// Separate mega menu for Tech Labs — rendered as the styled "Labs" pill
+export const labsMega = {
+  label: 'Labs',
+  to: '/labs',
+  columns: [
+    { title: 'Training Courses', links: [
+      ...courses.map((c) => ({ label: c.title, to: `/labs/courses/${c.slug}` })),
+      { label: 'View all courses', to: '/labs/courses', strong: true },
+    ]},
+    { title: 'Repair Services', links: [
+      ...services.slice(0, 5).map((s) => ({ label: s.title, to: `/labs/services/${s.slug}` })),
+      { label: 'View all services', to: '/labs/services', strong: true },
+    ]},
+    { title: 'More', links: [
+      { label: 'Book a Repair',  to: '/labs/book' },
+      { label: 'Instructors',    to: '/labs/instructors' },
+      { label: 'Gallery',        to: '/labs/gallery' },
+      { label: 'Testimonials',   to: '/labs/testimonials' },
+      { label: 'Contact Lab',    to: '/labs/contact' },
+    ]},
+  ],
+  featuredCourses: courses.slice(0, 3),
+} },
 ]
