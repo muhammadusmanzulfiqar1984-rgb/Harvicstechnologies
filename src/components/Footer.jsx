@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { MapPin, Mail, Phone } from 'lucide-react'
 import Container from './Container.jsx'
+import { useT } from '../context/LanguageContext.jsx'
 
 const FacebookIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
@@ -59,6 +60,15 @@ const cols = [
 ]
 
 export default function Footer() {
+  const t = useT()
+  const localizedCols = cols.map((c) => ({
+    ...c,
+    title:
+      c.title === 'Shop & Learn' ? t('footer.shopLearn') :
+      c.title === 'Account'      ? t('footer.account') :
+      c.title === 'Tech Labs'    ? t('footer.techLabs') :
+      c.title === 'Help'         ? t('footer.help') : c.title,
+  }))
   return (
     <footer className="mt-20 bg-[var(--color-brand-gray)] text-sm text-gray-700">
       <Container className="py-14">
@@ -68,8 +78,7 @@ export default function Footer() {
               Harvy<span className="text-[var(--color-accent-blue)]">oice</span>
             </Link>
             <p className="mt-4 max-w-sm text-gray-600">
-              Pakistan&apos;s destination for authentic Apple products. Genuine warranty,
-              nationwide delivery, secure payments.
+              {t('footer.intro')}
             </p>
             <div className="mt-6 space-y-2 text-gray-600">
               <p className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4" /> Shop #22, 2nd Floor, IT Tower, Gulberg 3, Lahore, Pakistan</p>
@@ -78,7 +87,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {cols.map((c) => (
+          {localizedCols.map((c) => (
             <div key={c.title}>
               <h4 className="mb-4 text-sm font-semibold text-[var(--color-brand-black)]">{c.title}</h4>
               <ul className="space-y-2">
@@ -96,17 +105,17 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-gray-300 pt-6 sm:flex-row sm:items-center">
           <div className="text-xs text-gray-500">
-            <p>© {new Date().getFullYear()} Harvyoice. All rights reserved.</p>
-            <p className="mt-1">A project by <span className="font-medium text-gray-700">Harvics Global Ventures</span>.</p>
+            <p>© {new Date().getFullYear()} Harvyoice. {t('footer.rights')}</p>
+            <p className="mt-1">{t('footer.projectBy')} <span className="font-medium text-gray-700">Harvics Global Ventures</span>.</p>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-500">
-            <Link to="/privacy-policy" className="hover:text-[var(--color-accent-blue)]">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-[var(--color-accent-blue)]">{t('footer.privacy')}</Link>
             <span className="text-gray-300">·</span>
-            <Link to="/terms" className="hover:text-[var(--color-accent-blue)]">Terms of Use</Link>
+            <Link to="/terms" className="hover:text-[var(--color-accent-blue)]">{t('footer.terms')}</Link>
             <span className="text-gray-300">·</span>
-            <Link to="/cookie-policy" className="hover:text-[var(--color-accent-blue)]">Cookie Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-[var(--color-accent-blue)]">{t('footer.cookies')}</Link>
             <span className="text-gray-300">·</span>
-            <Link to="/return-exchange-policy" className="hover:text-[var(--color-accent-blue)]">Returns</Link>
+            <Link to="/return-exchange-policy" className="hover:text-[var(--color-accent-blue)]">{t('footer.returns')}</Link>
           </div>
           <div className="flex items-center gap-4 text-gray-500">
             <a href="#" aria-label="Facebook" className="hover:text-[var(--color-accent-blue)]"><FacebookIcon className="h-4 w-4" /></a>

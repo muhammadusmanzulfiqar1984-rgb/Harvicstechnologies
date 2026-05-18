@@ -9,8 +9,10 @@ import InstructorCard from '../../components/InstructorCard.jsx'
 import TestimonialCard from '../../components/TestimonialCard.jsx'
 import TrustBadge from '../../components/TrustBadge.jsx'
 import { courses, services, instructors, labStats, labTestimonials, galleryImages } from '../../data/labs.js'
+import { useT } from '../../context/LanguageContext.jsx'
 
 export default function LabsHome() {
+  const t = useT()
   return (
     <>
       {/* Hero */}
@@ -19,17 +21,17 @@ export default function LabsHome() {
           <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1800&q=80" alt="" className="h-full w-full object-cover" />
         </div>
         <Container className="relative py-24 sm:py-32">
-          <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent-blue)]">Harvics Tech Labs</p>
+          <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent-blue)]">{t('labs.eyebrow')}</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
-            Build. Repair. Master.
+            {t('labs.heroTitle')}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-200">
-            Pakistan&apos;s modern mobile-repair lab and training center — practical courses, chip-level expertise, and world-class repair services under one roof.
+            {t('labs.heroSubtitle')}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button variant="primary" size="lg" to="/labs/courses">Enroll now</Button>
+            <Button variant="primary" size="lg" to="/labs/courses">{t('labs.enrollNow')}</Button>
             <Button variant="secondary" size="lg" to="/labs/book" className="border-white text-white hover:bg-white hover:text-black">
-              Book a repair
+              {t('labs.bookRepair')}
             </Button>
           </div>
         </Container>
@@ -47,7 +49,7 @@ export default function LabsHome() {
       {/* Courses */}
       <section className="py-14">
         <Container>
-          <SectionHeading eyebrow="Training" title="Our courses" viewAll="/labs/courses" />
+          <SectionHeading eyebrow={t('labs.training')} title={t('labs.ourCourses')} viewAll="/labs/courses" />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {courses.map((c) => <CourseCard key={c.slug} course={c} />)}
           </div>
@@ -57,7 +59,7 @@ export default function LabsHome() {
       {/* Services */}
       <section className="bg-[var(--color-brand-gray)] py-14">
         <Container>
-          <SectionHeading eyebrow="Repair" title="Lab services" viewAll="/labs/services" />
+          <SectionHeading eyebrow={t('labs.repair')} title={t('labs.labServices')} viewAll="/labs/services" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => <ServiceCard key={s.slug} service={s} />)}
           </div>
@@ -67,12 +69,12 @@ export default function LabsHome() {
       {/* Why us */}
       <section className="py-14">
         <Container>
-          <SectionHeading eyebrow="Why Harvics" title="Trusted by students & shops nationwide" />
+          <SectionHeading eyebrow={t('labs.whyHarvics')} title={t('labs.trusted')} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <TrustBadge icon={GraduationCap} title="Largest training setup" subtitle="Modern lab, real equipment" />
-            <TrustBadge icon={Wrench} title="100% practical" subtitle="Hands-on from day one" />
-            <TrustBadge icon={ShieldCheck} title="Certified repairs" subtitle="Genuine parts, warranty included" />
-            <TrustBadge icon={Users} title="Job & business support" subtitle="Lifetime guidance" />
+            <TrustBadge icon={GraduationCap} title={t('labs.largestSetup')} subtitle={t('labs.largestSetupSub')} />
+            <TrustBadge icon={Wrench} title={t('labs.practical')} subtitle={t('labs.practicalSub')} />
+            <TrustBadge icon={ShieldCheck} title={t('labs.certified')} subtitle={t('labs.certifiedSub')} />
+            <TrustBadge icon={Users} title={t('labs.jobSupport')} subtitle={t('labs.jobSupportSub')} />
           </div>
         </Container>
       </section>
@@ -80,7 +82,7 @@ export default function LabsHome() {
       {/* Instructors */}
       <section className="bg-[var(--color-brand-gray)] py-14">
         <Container>
-          <SectionHeading eyebrow="Team" title="Meet the instructors" viewAll="/labs/instructors" />
+          <SectionHeading eyebrow={t('labs.team')} title={t('labs.meetInstructors')} viewAll="/labs/instructors" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {instructors.map((i) => <InstructorCard key={i.name} instructor={i} />)}
           </div>
@@ -90,7 +92,7 @@ export default function LabsHome() {
       {/* Testimonials */}
       <section className="py-14">
         <Container>
-          <SectionHeading eyebrow="Reviews" title="What students & customers say" viewAll="/labs/testimonials" />
+          <SectionHeading eyebrow={t('home.reviews')} title={t('labs.studentReviews')} viewAll="/labs/testimonials" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {labTestimonials.map((t) => <TestimonialCard key={t.id} t={t} />)}
           </div>
@@ -100,7 +102,7 @@ export default function LabsHome() {
       {/* Gallery preview */}
       <section className="py-14">
         <Container>
-          <SectionHeading eyebrow="Inside the lab" title="Gallery" viewAll="/labs/gallery" />
+          <SectionHeading eyebrow={t('labs.insideLab')} title={t('labs.gallery')} viewAll="/labs/gallery" />
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
             {galleryImages.slice(0, 8).map((src, i) => (
               <div key={i} className="aspect-square overflow-hidden rounded-xl bg-[var(--color-brand-gray)]">
@@ -114,9 +116,9 @@ export default function LabsHome() {
       {/* CTA band */}
       <section className="bg-[var(--color-brand-black)] py-16 text-white">
         <Container className="flex flex-col items-center text-center">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Ready to start your repair career?</h2>
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t('labs.readyTitle')}</h2>
           <p className="mt-3 max-w-xl text-gray-300">
-            Join the next batch at Harvics Tech Labs. Talk to our team for free counselling.
+            {t('labs.readySubtitle')}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button variant="primary" size="lg" to="/labs/courses">View courses</Button>

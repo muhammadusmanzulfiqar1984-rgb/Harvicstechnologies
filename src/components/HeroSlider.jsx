@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { heroSlides } from '../data/products.js'
+import { useT } from '../context/LanguageContext.jsx'
+
+// map slider data CTA labels (English) to i18n keys
+const ctaKey = (label) => {
+  const m = { 'Buy now': 'product.buyNow', 'Learn more': 'product.learnMore', 'Shop now': 'product.shopNow' }
+  return m[label] || label
+}
 
 export default function HeroSlider() {
   const [idx, setIdx] = useState(0)
+  const t = useT()
 
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % heroSlides.length), 6000)
@@ -30,13 +38,13 @@ export default function HeroSlider() {
                   to={s.cta.to}
                   className="inline-flex h-11 items-center justify-center rounded-full bg-[var(--color-accent-blue)] px-6 text-sm font-medium text-[var(--color-brand-black)] transition hover:opacity-90"
                 >
-                  {s.cta.label}
+                  {t(ctaKey(s.cta.label))}
                 </Link>
                 <Link
                   to={s.secondary.to}
                   className="inline-flex h-11 items-center justify-center rounded-full border border-white/80 px-6 text-sm font-medium text-white transition hover:bg-white hover:text-black"
                 >
-                  {s.secondary.label}
+                  {t(ctaKey(s.secondary.label))}
                 </Link>
               </div>
             </div>
