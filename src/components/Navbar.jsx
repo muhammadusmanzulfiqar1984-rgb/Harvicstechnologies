@@ -4,6 +4,7 @@ import { Search, ShoppingBag, Menu, X, User, ChevronDown, ChevronRight } from 'l
 import { useCart } from '../context/CartContext.jsx'
 import { megaMenu, labsMega } from '../data/megaMenu.js'
 import { formatPKR } from '../data/labs.js'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -67,6 +68,7 @@ export default function Navbar() {
           <button aria-label="Search" className="rounded-full p-2 hover:bg-gray-100">
             <Search className="h-5 w-5" />
           </button>
+          <LanguageSwitcher />
           <Link to="/account" aria-label="Account" className="hidden rounded-full p-2 hover:bg-gray-100 sm:block">
             <User className="h-5 w-5" />
           </Link>
