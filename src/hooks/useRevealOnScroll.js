@@ -1,21 +1,41 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 /** Adds the `in-view` class to any element with `reveal` when it scrolls into view. */
 export default function useRevealOnScroll() {
-  const observed = useRef(false)
   useEffect(() => {
-    if (observed.current) return
-    observed.current = true
+    const reveal = (el) => el.classList.add('in-view')
+
+    // Fallback for browsers without IntersectionObserver
+    if (typeof IntersectionObserver === 'undefined') {
+      document.querySelectorAll('.reveal').forEach(reveal)
+      return
+    }
+
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in-view')),
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          reveal(e.target)
+          io.unobserve(e.target)
+        }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -10% 0px' }
     )
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
-    // Re-scan on route change
-    const mo = new MutationObserver(() => {
-      document.querySelectorAll('.reveal:not(.in-view)').forEach((el) => io.observe(el))
-    })
+
+    const observeAll = () => {
+      document.querySelectorAll('.reveal:not(.in-view)').forEach((el) => {
+        io.observe(el)
+        // Immediately reveal anything already in the viewport on mount
+        const r = el.getBoundingClientRect()
+        if (r.top < window.innerHeight && r.bottom > 0) reveal(el)
+      })
+    }
+
+    observeAll()
+
+    // Re-scan when the DOM changes (route changes, lazy content)
+    const mo = new MutationObserver(observeAll)
     mo.observe(document.body, { childList: true, subtree: true })
+
     return () => { io.disconnect(); mo.disconnect() }
   }, [])
 }

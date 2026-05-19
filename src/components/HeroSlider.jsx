@@ -25,7 +25,7 @@ export default function HeroSlider() {
           key={s.id}
           className={`absolute inset-0 transition-opacity duration-700 ${i === idx ? 'opacity-100' : 'opacity-0'}`}
         >
-          <img src={s.image} alt={s.title} className="h-full w-full object-cover" />
+          <img src={s.image} alt={s.title} loading={i === 0 ? 'eager' : 'lazy'} fetchPriority={i === 0 ? 'high' : 'auto'} decoding="async" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
           <div className="absolute inset-0 mx-auto flex max-w-7xl items-end px-4 pb-20 sm:px-6 lg:items-center lg:pb-0 lg:px-8">

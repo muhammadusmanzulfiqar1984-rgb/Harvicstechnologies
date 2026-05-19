@@ -27,4 +27,115 @@
   .reveal, .reveal.in-view { opacity: 1; transform: none; transition: none; }
   .card-lift { transition: none; }
   .marquee-track { animation: none; }
+  .brand-dock, .brand-dock-item, .feat-tile-img { transition: none !important; }
+}
+
+/* ── Brand landing: sticky product dock ───────────────────────────
+   The dock peeks from the bottom (translated down) and slides up
+   into view on hover/focus. Each card lifts on hover. */
+.brand-dock {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 30;
+  transform: translateY(calc(100% - 64px));
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.brand-dock:hover,
+.brand-dock:focus-within,
+.brand-dock.is-open {
+  transform: translateY(0);
+}
+.brand-dock-handle {
+  display: flex; align-items: center; justify-content: center;
+  height: 28px; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.brand-dock-handle .chev {
+  transition: transform 0.4s ease;
+}
+.brand-dock:hover .brand-dock-handle .chev,
+.brand-dock.is-open .brand-dock-handle .chev { transform: rotate(180deg); }
+
+.brand-dock-item {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+}
+.brand-dock-item:hover { transform: translateY(-6px); }
+
+/* Feature tile image zoom */
+.feat-tile { overflow: hidden; }
+.feat-tile-img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.feat-tile:hover .feat-tile-img { transform: scale(1.06); }
+
+/* Hide scrollbar on dock scroller */
+.brand-dock .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── Floating / flying phone hero animation ──────────────────── */
+@keyframes phoneFloat {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50%      { transform: translateY(-22px) rotate(4deg); }
+}
+@keyframes phoneSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.08); }
+}
+
+.fly-stage {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+.fly-phone {
+  animation: phoneFloat 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+  filter: drop-shadow(0 35px 60px rgba(0,0,0,0.55));
+  transition: transform 0.25s ease-out;
+}
+.fly-phone.spin { animation: phoneSpin 14s linear infinite; }
+
+.fly-glow {
+  position: absolute;
+  inset: 10% 10%;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: glow 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Fanned-out color showcase (multiple devices in a hand-fan) */
+.fan { position: relative; height: 360px; }
+.fan-card {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 180px; height: 360px;
+  margin-left: -90px;
+  border-radius: 32px;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  transform-origin: 50% 110%;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
+}
+.fan-card:hover {
+  transform: rotate(var(--rot, 0deg)) translateY(-18px) !important;
+  filter: brightness(1.1);
+  z-index: 20;
+}
+
+/* Tilt response from JS via CSS vars */
+.tilt {
+  transform: rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
+  transition: transform 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fly-phone, .fly-glow, .fan-card { animation: none !important; }
 }

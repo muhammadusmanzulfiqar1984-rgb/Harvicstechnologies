@@ -130,6 +130,21 @@ export const megaMenu = [
     ],
     featured: pickFor('xiaomi', 2),
   },
+  {
+    label: 'Motorola',
+    to: '/product-category/motorola',
+    columns: [
+      { title: 'Shop Motorola', links: [
+        { label: 'Edge 60 Ultra',     to: '/shop/moto-edge-60-ultra' },
+        { label: 'Edge 60 Pro',       to: '/shop/moto-edge-60-pro' },
+        { label: 'Razr 60 Ultra',     to: '/shop/moto-razr-60-ultra' },
+        { label: 'Razr 60',           to: '/shop/moto-razr-60' },
+        { label: 'Moto G85 Power',    to: '/shop/moto-g85-power' },
+        { label: 'View all Motorola', to: '/product-category/motorola', strong: true },
+      ]},
+    ],
+    featured: pickFor('motorola', 2),
+  },
 ]
 
 // Separate mega menu for Tech Labs — rendered as the styled "Labs" pill

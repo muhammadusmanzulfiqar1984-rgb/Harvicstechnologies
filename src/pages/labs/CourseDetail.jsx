@@ -31,7 +31,7 @@ export default function CourseDetail() {
 
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="overflow-hidden rounded-3xl bg-[var(--color-brand-gray)]">
-          <img src={course.image} alt={course.title} className="aspect-[4/3] w-full object-cover" />
+          <img src={course.image} alt={course.title} loading="eager" decoding="async" className="aspect-[4/3] w-full object-cover" />
         </div>
 
         <div>

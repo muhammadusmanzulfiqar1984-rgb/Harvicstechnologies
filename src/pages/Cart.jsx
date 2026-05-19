@@ -30,7 +30,7 @@ export default function Cart() {
             {items.map((i) => (
               <li key={i.id} className="flex gap-4 py-6">
                 <Link to={`/shop/${i.slug}`} className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[var(--color-brand-gray)]">
-                  <img src={i.image} alt={i.name} className="h-full w-full object-cover" />
+                  <img src={i.image} alt={i.name} loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </Link>
                 <div className="flex flex-1 flex-col">
                   <div className="flex justify-between gap-4">

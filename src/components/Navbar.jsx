@@ -133,7 +133,7 @@ export default function Navbar() {
                     className="group block"
                   >
                     <div className="aspect-square overflow-hidden rounded-xl bg-[var(--color-brand-gray)]">
-                      <img src={p.image} alt={p.name} className="h-full w-full object-cover transition group-hover:scale-105" />
+                      <img src={p.image} alt={p.name} loading="lazy" decoding="async" className="h-full w-full object-cover transition group-hover:scale-105" />
                     </div>
                     <p className="mt-2 text-xs font-medium text-gray-800 group-hover:text-[var(--color-accent-blue)]">{p.name}</p>
                   </Link>
@@ -185,7 +185,7 @@ export default function Navbar() {
                     className="group block"
                   >
                     <div className="aspect-[4/3] overflow-hidden rounded-xl bg-[var(--color-brand-gray)]">
-                      <img src={c.image} alt={c.title} className="h-full w-full object-cover transition group-hover:scale-105" />
+                      <img src={c.image} alt={c.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition group-hover:scale-105" />
                     </div>
                     <p className="mt-2 text-xs font-semibold text-gray-800 group-hover:text-[var(--color-accent-blue)]">{c.title}</p>
                     <p className="text-[11px] text-gray-500">{c.duration} · {formatPKR(c.fee)}</p>

@@ -7,6 +7,7 @@ export const categories = [
   { slug: 'samsung', name: 'Samsung', icon: '📲' },
   { slug: 'google', name: 'Google Pixel', icon: '🅖' },
   { slug: 'xiaomi', name: 'Xiaomi', icon: '🔶' },
+  { slug: 'motorola', name: 'Motorola', icon: '🅼' },
   { slug: 'accessories', name: 'Accessories', icon: '🔌' },
 ]
 
@@ -277,6 +278,52 @@ export const products = [
     category: 'xiaomi',
     price: 119999,
     image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=800&q=80',
+  },
+
+  // ── Motorola ──────────────────────────────────────────────
+  {
+    id: 'moto-edge-60-ultra',
+    slug: 'moto-edge-60-ultra',
+    name: 'Motorola Edge 60 Ultra',
+    category: 'motorola',
+    price: 239999,
+    image: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=800&q=80',
+    badge: 'New',
+    tagline: 'Curved pOLED. Pantone tuned.',
+  },
+  {
+    id: 'moto-edge-60-pro',
+    slug: 'moto-edge-60-pro',
+    name: 'Motorola Edge 60 Pro',
+    category: 'motorola',
+    price: 189999,
+    image: 'https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=800&q=80',
+  },
+  {
+    id: 'moto-razr-60-ultra',
+    slug: 'moto-razr-60-ultra',
+    name: 'Motorola Razr 60 Ultra',
+    category: 'motorola',
+    price: 359999,
+    image: 'https://images.unsplash.com/photo-1610792516775-01de03eae630?w=800&q=80',
+    badge: 'Foldable',
+    tagline: 'Iconic flip. Modern flagship.',
+  },
+  {
+    id: 'moto-razr-60',
+    slug: 'moto-razr-60',
+    name: 'Motorola Razr 60',
+    category: 'motorola',
+    price: 219999,
+    image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80',
+  },
+  {
+    id: 'moto-g85-power',
+    slug: 'moto-g85-power',
+    name: 'Motorola Moto G85 Power',
+    category: 'motorola',
+    price: 74999,
+    image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
   },
 ]
 

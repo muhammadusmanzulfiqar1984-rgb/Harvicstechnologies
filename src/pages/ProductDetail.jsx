@@ -39,7 +39,7 @@ export default function ProductDetail() {
 
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="overflow-hidden rounded-3xl bg-[var(--color-brand-gray)]">
-            <img src={product.image} alt={product.name} className="aspect-square w-full object-cover" />
+            <img src={product.image} alt={product.name} loading="eager" fetchPriority="high" decoding="async" className="aspect-square w-full object-cover" />
           </div>
 
           <div>

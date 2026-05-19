@@ -18,7 +18,7 @@ export default function LabsHome() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[var(--color-brand-black)] text-white">
         <div className="absolute inset-0 opacity-30">
-          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1800&q=80" alt="" className="h-full w-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1800&q=80" alt="" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
         </div>
         <Container className="relative py-24 sm:py-32">
           <p className="text-sm font-medium uppercase tracking-wider text-[var(--color-accent-blue)]">{t('labs.eyebrow')}</p>
