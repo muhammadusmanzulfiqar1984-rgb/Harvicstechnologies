@@ -10,6 +10,7 @@ import {
   ChevronRight as Chev,
 } from 'lucide-react'
 import { products } from './products.js'
+import { unsplash, IMG } from './imageMap.js'
 
 const byCat = (cat) => products.filter((p) => p.category === cat)
 
@@ -39,7 +40,7 @@ export const brandLandings = {
     title: 'iPhone 17',
     tagline: 'Magichromatic.',
     heroEyebrow: 'New',
-    heroImage: 'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=2000&q=80',
+    heroImage: unsplash(IMG.iphoneHero, 2000),
     heroAccent: '#C3A35E',
     startingPrice: 349999,
 
@@ -66,7 +67,7 @@ export const brandLandings = {
       eyebrow: 'Design',
       title: 'Even more delightful. Even more durable.',
       body: 'Contoured edges, thinner borders, and Ceramic Shield 2 on the front. A 6.3-inch Super Retina XDR display with ProMotion adapts up to 120Hz for smoother scrolling and gaming.',
-      image: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1600&q=80',
+      image: unsplash(IMG.iphone17ProMax, 1600),
     },
 
     /* ── Camera section ─────────────────────────────── */
@@ -190,7 +191,7 @@ export const brandLandings = {
     title: 'Galaxy S25',
     tagline: 'AI is now. Galaxy is ready.',
     heroEyebrow: 'New',
-    heroImage: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=2000&q=80',
+    heroImage: unsplash(IMG.galaxyS25Ultra, 2000),
     heroAccent: '#6B1F2B',
     startingPrice: 359999,
 
@@ -214,7 +215,7 @@ export const brandLandings = {
       eyebrow: 'Design',
       title: 'Titanium strength. Pocketable elegance.',
       body: 'A flat 6.8" QHD+ Dynamic AMOLED 2X display with Gorilla Armor 2 — anti-reflective, scratch-resistant, and beautifully bright at 2,600 nits.',
-      image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=1600&q=80',
+      image: unsplash(IMG.galaxyZFold, 1600),
     },
 
     cameras: {
@@ -330,7 +331,7 @@ export const brandLandings = {
     title: 'Xiaomi 15 Ultra',
     tagline: 'Leica-tuned imaging. Hyper-fast everything.',
     heroEyebrow: 'New',
-    heroImage: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=2000&q=80',
+    heroImage: unsplash(IMG.xiaomiUltra, 2000),
     heroAccent: '#A88846',
     startingPrice: 219999,
 
@@ -354,7 +355,7 @@ export const brandLandings = {
       eyebrow: 'Design',
       title: 'Iconic body. Photographic intent.',
       body: 'A flat 6.73" WQHD+ AMOLED at 3,000 nits peak brightness. Aluminum mid-frame paired with ceramic or vegan leather backs.',
-      image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1600&q=80',
+      image: unsplash(IMG.xiaomiPro, 1600),
     },
 
     cameras: {
@@ -470,7 +471,7 @@ export const brandLandings = {
     title: 'Motorola Edge & Razr',
     tagline: 'Iconic design. Modern flagship.',
     heroEyebrow: 'New',
-    heroImage: 'https://images.unsplash.com/photo-1610792516775-01de03eae630?w=2000&q=80',
+    heroImage: unsplash(IMG.motoEdgeUltra, 2000),
     heroAccent: '#8A3340',
     startingPrice: 189999,
 
@@ -494,7 +495,7 @@ export const brandLandings = {
       eyebrow: 'Design',
       title: 'Iconic curves. Modern materials.',
       body: 'A waterfall pOLED display wrapped in a vegan-leather back. Light in the hand, durable in the wild, and Pantone-validated for color you can trust.',
-      image: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=1600&q=80',
+      image: unsplash(IMG.motoEdgePro, 1600),
     },
 
     cameras: {

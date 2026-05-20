@@ -1,18 +1,24 @@
 import { useState, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Search, ShoppingBag, Menu, X, User, ChevronDown, ChevronRight } from 'lucide-react'
+import { Search, ShoppingBag, Menu, X, User, ChevronDown, ChevronRight, Heart, GitCompareArrows, Briefcase } from 'lucide-react'
 import { useCart } from '../context/CartContext.jsx'
+import { useWishlist } from '../context/WishlistContext.jsx'
+import { useCompare } from '../context/CompareContext.jsx'
 import { megaMenu, labsMega } from '../data/megaMenu.js'
 import { formatPKR } from '../data/labs.js'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
+import SearchOverlay from './SearchOverlay.jsx'
 import { useT } from '../context/LanguageContext.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(null)
   const [mobileExpanded, setMobileExpanded] = useState(null)
+  const [searchOpen, setSearchOpen] = useState(false)
   const closeTimer = useRef(null)
   const { count } = useCart()
+  const wl  = useWishlist()
+  const cmp = useCompare()
   const t = useT()
 
   const openMenu = (label) => {
@@ -67,10 +73,38 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button aria-label="Search" className="rounded-full p-2 hover:bg-gray-100">
+          <button
+            aria-label="Search"
+            onClick={() => setSearchOpen(true)}
+            className="rounded-full p-2 hover:bg-gray-100"
+          >
             <Search className="h-5 w-5" />
           </button>
           <LanguageSwitcher />
+          <Link
+            to="/business"
+            aria-label="Business"
+            className="hidden rounded-full p-2 hover:bg-gray-100 sm:block"
+            title="For Business"
+          >
+            <Briefcase className="h-5 w-5" />
+          </Link>
+          <Link to="/compare" aria-label="Compare" className="relative hidden rounded-full p-2 hover:bg-gray-100 sm:block">
+            <GitCompareArrows className="h-5 w-5" />
+            {cmp.count > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--color-accent-blue)] px-1 text-[10px] font-semibold text-white">
+                {cmp.count}
+              </span>
+            )}
+          </Link>
+          <Link to="/wishlist" aria-label="Wishlist" className="relative rounded-full p-2 hover:bg-gray-100">
+            <Heart className="h-5 w-5" />
+            {wl.count > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--color-accent-red)] px-1 text-[10px] font-semibold text-white">
+                {wl.count}
+              </span>
+            )}
+          </Link>
           <Link to="/account" aria-label="Account" className="hidden rounded-full p-2 hover:bg-gray-100 sm:block">
             <User className="h-5 w-5" />
           </Link>
@@ -253,6 +287,7 @@ export default function Navbar() {
           </nav>
         </div>
       )}
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   )
 }

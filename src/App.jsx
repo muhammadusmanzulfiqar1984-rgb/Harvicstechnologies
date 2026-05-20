@@ -4,6 +4,7 @@ import AnnouncementBar from './components/AnnouncementBar.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import WhatsAppFloat from './components/WhatsAppFloat.jsx'
+import CompareDrawer from './components/CompareDrawer.jsx'
 import useRevealOnScroll from './hooks/useRevealOnScroll.js'
 
 // Eager: Home is the landing page, keep it in the main bundle.
@@ -18,6 +19,9 @@ const Cart           = lazy(() => import('./pages/Cart.jsx'))
 const About          = lazy(() => import('./pages/About.jsx'))
 const Contact        = lazy(() => import('./pages/Contact.jsx'))
 const NotFound       = lazy(() => import('./pages/NotFound.jsx'))
+const Wishlist       = lazy(() => import('./pages/Wishlist.jsx'))
+const Compare        = lazy(() => import('./pages/Compare.jsx'))
+const Business       = lazy(() => import('./pages/Business.jsx'))
 
 const LabsHome       = lazy(() => import('./pages/labs/LabsHome.jsx'))
 const CoursesList    = lazy(() => import('./pages/labs/CoursesList.jsx'))
@@ -58,6 +62,9 @@ export default function App() {
             <Route path="/product-category/:category" element={<CategoryRoute />} />
             <Route path="/shop/:slug" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/business" element={<Business />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact-us" element={<Contact />} />
 
@@ -81,6 +88,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <CompareDrawer />
     </div>
   )
 }

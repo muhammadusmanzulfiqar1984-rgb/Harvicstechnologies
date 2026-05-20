@@ -45,14 +45,14 @@ export default function Home() {
         <Container>
           <div className="grid gap-4 md:grid-cols-2">
             <PromoBanner
-              image="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1400&q=80"
+              image="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=85"
               eyebrow="Now Available"
               title="MacBook Air M5"
               subtitle="Speed of light. Weight of air."
               to="/shop/macbook-air-13-m5"
             />
             <PromoBanner
-              image="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=1400&q=80"
+              image="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=1400&q=85"
               eyebrow="Built for adventure"
               title="Apple Watch Ultra 3"
               subtitle="Your most capable Watch yet."
